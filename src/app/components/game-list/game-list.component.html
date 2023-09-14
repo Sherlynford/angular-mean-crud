@@ -1,0 +1,35 @@
+<div class="container mt-3">
+    <div class="d-flex justify-content between flex-wrap flex-md-nowarp align-item-center pt-2 pb-2 mb-3 border-bottom">
+        <h1>Games List</h1>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">name</th>
+                    <th scope="col">price</th>
+                    <th scope="col">description</th>
+                    <th class="text-center" scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let game of Games; let i = index">
+                    <th scope="row">{{game._id}}</th>
+                    <td>{{game.name}}</td>
+                    <td>{{game.price}}</td>
+                    <td>{{game.description}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-primary" routerLink="/edit-game/{{game._id}}">
+                            Edit
+                        </button>
+                        <button class="btn btn-sm btn-danger" (click)="delete(game._id,i)"> 
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+</div>
